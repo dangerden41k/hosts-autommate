@@ -1,0 +1,4 @@
+# Domains to DROP from the merge. A domain is excluded if it CONTAINS any
+# pattern below (substring match, case-insensitive). One pattern per line.
+# Reason: Xbox Live via proxy IPs breaks Xbox - user says it works without hosts entries.
+xbox
