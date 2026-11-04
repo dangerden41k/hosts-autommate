@@ -1,5 +1,5 @@
 # ============================================================
-# Merged hosts file - generated 2026-11-04 18:30 UTC by hosts-merger
+# Merged hosts file - generated 2026-11-04 18:32 UTC by hosts-merger
 # Sources (priority top-down):
 #   1. spotify_hosts
 #   2. roblox_hosts
@@ -109,9 +109,6 @@
 31.58.216.201      edgeservices.bing.com
 31.58.216.201      rewards.bing.com
 31.58.216.201      sydney.bing.com
-31.58.216.201      xgpuweb.gssv-play-prod.xboxlive.com
-31.58.216.201      xgpuwebf2p.gssv-play-prod.xboxlive.com
-31.58.216.201      xsts.auth.xboxlive.com
 
 # === Spotify (malw.link) ===
 31.58.216.201      accounts.scdn.co
@@ -755,14 +752,10 @@
 159.194.200.33     www.meta.ai
 
 # === Microchip (GeoHideDNS RU) ===
-193.233.112.88     auth.xboxlive.com
 159.194.200.33     designer.microsoft.com
 193.233.112.88     ecs.office.com
-193.233.112.88     gssv-play-prod.xboxlive.com
 193.233.112.67     microchip.com
-193.233.112.68     titlestorage.xboxlive.com
 193.233.112.88     www.microchip.com
-193.233.112.88     xboxdesignlab.xbox.com
 
 # === Modivo (GeoHideDNS RU) ===
 159.194.200.33     img.modivo.cloud
