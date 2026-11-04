@@ -1,0 +1,21 @@
+# Roblox images/icons fix (Flowseal discussions 16296 + 16332)
+# Windows uses only the FIRST tr.rbxcdn.com line - the rest are documented fallbacks.
+# If icons break, swap the first line with one of the fallback IPs (then rerun merge).
+18.65.39.105 tr.rbxcdn.com
+
+# fallbacks:
+# 23.47.124.101 tr.rbxcdn.com   (9Art9, Jul 2026 - working)
+# 23.47.124.78  tr.rbxcdn.com   (9Art9, Jul 2026 - working)
+# 2.16.56.91    tr.rbxcdn.com   (kinlay0, Sep 2026)
+# 2.16.56.96    tr.rbxcdn.com
+# 3.174.2.50    tr.rbxcdn.com
+# 3.174.2.70    tr.rbxcdn.com
+# 3.174.2.108   tr.rbxcdn.com
+# 3.174.2.24    tr.rbxcdn.com
+# 2.18.121.34   tr.rbxcdn.com
+# 2.18.121.17   tr.rbxcdn.com
+# 13.33.235.74  tr.rbxcdn.com   (RachokX; location-dependent, nslookup tr.rbxcdn.com 9.9.9.9)
+# 13.33.235.79  tr.rbxcdn.com
+# 13.33.235.112 tr.rbxcdn.com
+# 13.33.235.122 tr.rbxcdn.com
+# 195.128.123.5 tr.rbxcdn.com   (kinlay0)
