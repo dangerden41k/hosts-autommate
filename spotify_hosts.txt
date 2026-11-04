@@ -1,0 +1,15 @@
+# Spotify fix from Flowseal/zapret-discord-youtube discussion 5552
+# Posted by norijoo, 02.11.2026 - works via GeoHide EU server 5.175.161.3
+5.175.161.3 gew1-spclient.spotify.com
+5.175.161.3 login5.spotify.com
+5.175.161.3 api.spotify.com
+5.175.161.3 accounts.spotify.com
+5.175.161.3 aet.spotify.com
+5.175.161.3 open.spotify.com
+5.175.161.3 spotifycdn.com
+5.175.161.3 www.spotify.com
+5.175.161.3 spclient.wg.spotify.com
+5.175.161.3 api-partner.spotify.com
+5.175.161.3 encore.scdn.co
+5.175.161.3 i.scdn.co
+5.175.161.3 image-cdn-ak.spotifycdn.com
