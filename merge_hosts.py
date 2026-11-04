@@ -96,15 +96,25 @@ def parse_entries(text: str, origin: str):
     return out
 
 
-def merge(sources):
+def load_excludes(path: Path):
+    if not path.exists():
+        return set()
+    return {l.strip().lower() for l in path.read_text(encoding="utf-8-sig").splitlines()
+            if l.strip() and not l.startswith("#")}
+
+
+def merge(sources, excludes=()):
     """Dedupe within each source (first IP per domain wins), then merge across
     sources with first-source priority. Returns domain -> (ip, section, tag)."""
     by_domain = OrderedDict()
     conflicts = []
-    total = dupes = intra = 0
+    total = dupes = intra = excluded = 0
     for tag, text in sources:
         seen = {}
         for ip, domain, section in parse_entries(text, tag):
+            if any(x in domain for x in excludes):
+                excluded += 1
+                continue
             total += 1
             local = seen.get(domain)
             if local is None:
@@ -121,7 +131,7 @@ def merge(sources):
                 dupes += 1
             else:
                 conflicts.append((domain, prev[0], ip))
-    return by_domain, total, dupes, intra, conflicts
+    return by_domain, total, dupes, intra, conflicts, excluded
 
 
 def build_output(by_domain, tags):
@@ -211,13 +221,13 @@ def main():
         print("No sources loaded - aborting without writing output.")
         return 1
 
-    by_domain, total, dupes, intra, conflicts = merge(sources)
+    by_domain, total, dupes, intra, conflicts, excluded = merge(sources, load_excludes(ROOT / "exclude.txt"))
     out_text = build_output(by_domain, tags)
     output_path.write_text(out_text, encoding="utf-8", newline="\n")
 
     print()
     print(f"Loaded sources     : {len(sources)}")
-    print(f"Raw entries        : {total}")
+    print(f"Raw entries        : {total} (excluded by exclude.txt: {excluded})")
     print(f"Unique domains     : {len(by_domain)} (duplicates removed: {dupes})")
     if intra:
         print(f"Intra-source dupes : {intra} (same domain, different IPs in one source - first kept)")
