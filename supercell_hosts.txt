@@ -1,0 +1,29 @@
+# Supercell games + extras, domains from GeoHideDNS panel lists
+# (github.com/Internet-Helper/GeoHideDNS -> lists/supercell.txt, lists/domains.txt)
+# Mapped to GeoHide RU primary server 159.194.200.33
+159.194.200.33 boombeach.com
+159.194.200.33 boombeachgame.com
+159.194.200.33 brawlstars.com
+159.194.200.33 brawlstarsgame.com
+159.194.200.33 clash.com
+159.194.200.33 clashmini.com
+159.194.200.33 clashofclans.com
+159.194.200.33 clashroyale.com
+159.194.200.33 clashroyaleapp.com
+159.194.200.33 gamesfirsthelsinki.com
+159.194.200.33 hayday.com
+159.194.200.33 haydaygame.com
+159.194.200.33 mo.co
+159.194.200.33 mocogame.com
+159.194.200.33 seeurlpcl.com
+159.194.200.33 squadbusters.com
+159.194.200.33 squadbustersgame.com
+159.194.200.33 supercell.com
+159.194.200.33 supercell.helpshift.com
+159.194.200.33 supercell.net
+159.194.200.33 supercellcreators.com
+159.194.200.33 supercellgames.com
+159.194.200.33 supercellid.com
+159.194.200.33 supercellstore.com
+159.194.200.33 cgtrader.com
+159.194.200.33 chaos.com
