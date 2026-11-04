@@ -1,0 +1,16 @@
+# One URL or local file path per line. '#' = comment.
+# Earlier lines have priority: if two sources map the same domain
+# to different IPs, the earlier source wins.
+
+# 1. Community fixes (Flowseal/zapret-discord-youtube discussions)
+spotify_hosts.txt
+roblox_hosts.txt
+
+# 2. GeoHide panel lists: Supercell games + extras
+supercell_hosts.txt
+
+# 3. dns.malw.link
+https://raw.githubusercontent.com/ImMALWARE/dns.malw.link/master/hosts
+
+# 4. Internet-Helper / GeoHideDNS (RU region)
+https://raw.githubusercontent.com/Internet-Helper/GeoHideDNS/main/hosts/hosts
