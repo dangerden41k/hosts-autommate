@@ -6,11 +6,9 @@
 spotify_hosts.txt
 roblox_hosts.txt
 
-# 2. GeoHide panel lists: Supercell games + extras
-supercell_hosts.txt
+# 2. GeoHide: ALL panel domains auto-mapped to LIVE servers by make_geohide.py
+#    (original sources: hosts/hosts + hosts/eu/hosts + lists/supercell.txt + lists/domains.txt)
+geohide_ru_hosts.txt
 
 # 3. dns.malw.link
 https://raw.githubusercontent.com/ImMALWARE/dns.malw.link/master/hosts
-
-# 4. Internet-Helper / GeoHideDNS (RU region)
-https://raw.githubusercontent.com/Internet-Helper/GeoHideDNS/main/hosts/hosts
