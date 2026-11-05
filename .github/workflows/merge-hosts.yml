@@ -17,6 +17,8 @@ jobs:
           python-version: "3.12"
       - name: Regenerate spotify fix
         run: python make_spotify.py || echo "spotify regen failed - keeping committed file"
+      - name: Regenerate geohide block (live servers)
+        run: python make_geohide.py || echo "geohide regen failed - keeping committed file"
       - name: Merge sources
         run: python merge_hosts.py
       - name: Commit and push if changed
