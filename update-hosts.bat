@@ -3,6 +3,9 @@ cd /d "%~dp0"
 echo === Refreshing Spotify fix (auto-pick live GeoHide server) ===
 python make_spotify.py
 echo.
+echo === Refreshing GeoHide block (live servers only) ===
+python make_geohide.py
+echo.
 echo === Merging hosts sources ===
 python merge_hosts.py
 if errorlevel 1 goto err
