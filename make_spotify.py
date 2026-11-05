@@ -119,7 +119,13 @@ def main():
     for dom in sorted(chosen):
         lines.append(f"{chosen[dom]:<18} {dom}")
     lines.append("")
-    OUT.write_text("\n".join(lines), encoding="utf-8", newline="\n")
+    new_text = "\n".join(lines)
+    # skip write if only the timestamp changed (avoids commit spam on hourly runs)
+    strip = lambda s: [l for l in s.splitlines() if "Generated:" not in l and "Generated -" not in l]
+    if OUT.exists() and strip(OUT.read_text(encoding="utf-8", errors="replace")) == strip(new_text):
+        print(f"spotify_hosts.txt unchanged ({len(chosen)} domains) - not rewritten")
+        return 0
+    OUT.write_text(new_text, encoding="utf-8", newline="\n")
     print(f"spotify_hosts.txt written: {len(chosen)} domains")
     return 0
 
