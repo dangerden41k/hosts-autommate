@@ -1,5 +1,5 @@
 # ============================================================
-# Merged hosts file - generated 2026-11-05 14:12 UTC by hosts-merger
+# Merged hosts file - generated 2026-11-05 15:52 UTC by hosts-merger
 # Sources (priority top-down):
 #   1. spotify_hosts
 #   2. roblox_hosts
@@ -12,20 +12,25 @@
 127.0.0.1  localhost.localdomain
 ::1        localhost
 
-# === spotify_hosts: 5.175.161.3 (13 domains) ===
-5.175.161.3        accounts.spotify.com
-5.175.161.3        aet.spotify.com
-5.175.161.3        api-partner.spotify.com
-5.175.161.3        api.spotify.com
-5.175.161.3        encore.scdn.co
-5.175.161.3        gew1-spclient.spotify.com
-5.175.161.3        i.scdn.co
-5.175.161.3        image-cdn-ak.spotifycdn.com
-5.175.161.3        login5.spotify.com
-5.175.161.3        open.spotify.com
-5.175.161.3        spclient.wg.spotify.com
-5.175.161.3        spotifycdn.com
-5.175.161.3        www.spotify.com
+# === spotify_hosts: 143.20.64.192 (18 domains) ===
+143.20.64.192      accounts.scdn.co
+143.20.64.192      accounts.spotify.com
+143.20.64.192      aet.spotify.com
+143.20.64.192      api-partner.spotify.com
+143.20.64.192      api.spotify.com
+143.20.64.192      encore.scdn.co
+143.20.64.192      gew1-dealer.spotify.com
+143.20.64.192      gew1-spclient.spotify.com
+143.20.64.192      login5.spotify.com
+143.20.64.192      open.spotify.com
+143.20.64.192      scdn.co
+143.20.64.192      spclient.wg.spotify.com
+143.20.64.192      spotify.com
+143.20.64.192      spotify.dev
+143.20.64.192      www-growth.scdn.co
+143.20.64.192      www.scdn.co
+143.20.64.192      www.spotify.com
+143.20.64.192      www.spotify.dev
 
 # === roblox_hosts: 18.65.39.105 (1 domain) ===
 18.65.39.105       tr.rbxcdn.com
@@ -109,16 +114,6 @@
 31.58.216.201      edgeservices.bing.com
 31.58.216.201      rewards.bing.com
 31.58.216.201      sydney.bing.com
-
-# === Spotify (malw.link) ===
-31.58.216.201      accounts.scdn.co
-31.58.216.201      gew1-dealer.spotify.com
-193.233.112.88     scdn.co
-193.233.112.67     spotify.com
-193.233.112.68     spotify.dev
-31.58.216.201      www-growth.scdn.co
-193.233.112.67     www.scdn.co
-159.194.200.33     www.spotify.dev
 
 # === GitHub Copilot (malw.link) ===
 31.58.216.201      api.github.com
