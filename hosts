@@ -1,10 +1,11 @@
 # ============================================================
-# Merged hosts file - generated 2026-11-11 15:49 UTC by hosts-merger
+# Merged hosts file - generated 2026-11-11 16:18 UTC by hosts-merger
 # Sources (priority top-down):
 #   1. spotify_hosts
 #   2. roblox_hosts
 #   3. geohide_ru_hosts
 #   4. malw.link
+#   5. geofree_hosts
 # ============================================================
 
 127.0.0.1  localhost
@@ -1123,6 +1124,9 @@
 # === Patreon (malw.link) ===
 31.31.207.68       patreon.com
 31.58.216.201      www.patreon.com
+
+# === geofree_hosts: 141.133.183.77 (1 domain) ===
+141.133.183.77     cdn.auth0.com
 
 # === Blocklist: ads and trackers (0.0.0.0) ===
 0.0.0.0            1l-hit.mail.ru
