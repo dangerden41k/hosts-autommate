@@ -5,7 +5,6 @@
 # 1. Community fixes (Flowseal/zapret-discord-youtube discussions)
 spotify_hosts.txt
 roblox_hosts.txt
-7tv_hosts.txt
 
 # 2. GeoHide: ALL panel domains auto-mapped to LIVE servers by make_geohide.py
 #    (original sources: hosts/hosts + hosts/eu/hosts + lists/supercell.txt + lists/domains.txt)
@@ -14,6 +13,10 @@ geohide_ru_hosts.txt
 # 3. dns.malw.link
 https://raw.githubusercontent.com/ImMALWARE/dns.malw.link/master/hosts
 
-# 4. GeoFree (Takeh1ko): AI services via Comss Smart DNS - LAST = gap filler.
-#    To prefer it for AI domains (claude/gemini/grok), move it ABOVE geohide line.
-geofree_hosts.txt
+# REMOVED 2026-11-11: geofree_hosts.txt / 7tv_hosts.txt (Comss Smart DNS proxy).
+# REASON: the Comss proxy MITMs TLS with an untrusted certificate - curl -k works
+# (scripts saw "200") but real browsers reject the cert (PR_CONNECT_RESET /
+# ERR_CERT). Verified: chatgpt.com, cdn.auth0.com, 7tv.io all fail cert check via
+# Comss. Keep make_geofree.py / make_7tv.py on disk for reference only.
+# NOTE: 7tv itself = IP-level RKN block + cert-MITM-only proxy available ->
+# hosts impossible for 7tv; working path = Happ VPN proxy (user keeps Global ON).
