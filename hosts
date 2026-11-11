@@ -1,12 +1,10 @@
 # ============================================================
-# Merged hosts file - generated 2026-11-11 16:49 UTC by hosts-merger
+# Merged hosts file - generated 2026-11-11 17:09 UTC by hosts-merger
 # Sources (priority top-down):
 #   1. spotify_hosts
 #   2. roblox_hosts
-#   3. 7tv_hosts
-#   4. geohide_ru_hosts
-#   5. malw.link
-#   6. geofree_hosts
+#   3. geohide_ru_hosts
+#   4. malw.link
 # ============================================================
 
 127.0.0.1  localhost
@@ -559,13 +557,6 @@
 
 # === roblox_hosts: 18.65.39.105 (1 domain) ===
 18.65.39.105       tr.rbxcdn.com
-
-# === 7tv_hosts: 141.133.183.77 (5 domains) ===
-141.133.183.77     7tv.app
-141.133.183.77     7tv.io
-141.133.183.77     api.7tv.app
-141.133.183.77     cdn.7tv.app
-141.133.183.77     cdn.auth0.com
 
 # === geohide_ru_hosts: 37.221.93.141 (517 domains) ===
 37.221.93.141      a-api.anthropic.com
