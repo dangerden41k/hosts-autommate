@@ -12,3 +12,7 @@ geohide_ru_hosts.txt
 
 # 3. dns.malw.link
 https://raw.githubusercontent.com/ImMALWARE/dns.malw.link/master/hosts
+
+# 4. GeoFree (Takeh1ko): AI services via Comss Smart DNS - LAST = gap filler.
+#    To prefer it for AI domains (claude/gemini/grok), move it ABOVE geohide line.
+geofree_hosts.txt
