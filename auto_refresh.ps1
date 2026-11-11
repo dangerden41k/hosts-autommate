@@ -12,6 +12,7 @@ Set-Location "C:\Users\koski\ZCodeProject\hosts-merger"
 python -I make_spotify.py;  $spotify = $LASTEXITCODE
 python -I make_geohide.py;  $geohide = $LASTEXITCODE
 python -I make_geofree.py;  $geofree = $LASTEXITCODE
+python -I make_7tv.py;      $seventv  = $LASTEXITCODE
 python -I merge_hosts.py;   $merge   = $LASTEXITCODE
 
 $applied = "skip"
@@ -30,6 +31,7 @@ $status = @(
     ("spotify    : " + $(if ($spotify -eq 0) { "OK" } else { "kept previous file (exit $spotify)" })),
     ("geohide    : " + $(if ($geohide -eq 0) { "OK" } else { "kept previous file (exit $geohide)" })),
     ("geofree    : " + $(if ($geofree -eq 0) { "OK" } else { "kept previous file (exit $geofree)" })),
+    ("7tv        : " + $(if ($seventv -eq 0) { "OK" } else { "kept previous file (exit $seventv)" })),
     ("merge      : " + $(if ($merge -eq 0) { "OK" } else { "FAIL" })),
     ("systemapply: " + $applied),
     ("githubsync : " + $synced),
