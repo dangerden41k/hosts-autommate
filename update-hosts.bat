@@ -9,6 +9,9 @@ echo.
 echo === Refreshing AI services block (GeoFree / Comss) ===
 python make_geofree.py
 echo.
+echo === Refreshing 7TV block (Comss) ===
+python make_7tv.py
+echo.
 echo === Merging hosts sources ===
 python merge_hosts.py
 if errorlevel 1 goto err
