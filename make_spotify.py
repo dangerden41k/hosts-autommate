@@ -1,16 +1,18 @@
 # make_spotify.py - regenerate spotify_hosts.txt with a LIVE, CERT-VALID server.
 #
-# Domain list = the community-authoritative set from Flowseal discussion 5552
-# (latest post 2026-11-12). Candidate servers come from the GeoHide EU file.
-# Every candidate is tested with CERT VERIFICATION ON (real browser behavior -
-# learned the hard way: verify-off probes gave false "200" on MITM proxies).
-# Picks the first server that answers HTTP for api.spotify.com with a valid
-# certificate; falls back to the last known-good IP from the existing file.
+# Self-healing order when the current IP dies:
+#   1. the FRESHEST community IP parsed from Flowseal discussion 5552 (the thread
+#      where norijoo posts working blocks - fetched live, best-effort),
+#   2. the current IP from the existing file,
+#   3. every GeoHide EU server (from the EU hosts file).
+# All candidates tested with CERT VERIFICATION ON (real browser behavior -
+# verify-off probes gave false "200" on MITM proxies). Nothing valid found ->
+# existing file untouched. Domain list = community-authoritative (12.11.2026 post).
 import re
 import socket
 import ssl
+import time
 import urllib.request
-from collections import defaultdict
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -27,11 +29,48 @@ DOMAINS = [
     "www-growth.scdn.co", "scdn.co", "www.scdn.co", "i.scdn.co",
 ]
 PROBE_DOMAIN = "api.spotify.com"
+# IP immediately followed by a spotify/scdn domain in the thread HTML
+PAIR_RE = re.compile(
+    r"(\d{1,3}(?:\.\d{1,3}){3})\s*[\n\r]+\s*((?:[\w-]+\.)*(?:spotify\.(?:com|dev|io)|scdn\.co)\b)",
+    re.I,
+)
+
+
+def fetch(url, timeout=60):
+    for attempt in range(3):
+        try:
+            req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 hosts-merger"})
+            return urllib.request.urlopen(req, timeout=timeout).read().decode("utf-8", errors="replace")
+        except Exception as e:
+            if attempt == 2:
+                print(f"  ! fetch failed {url}: {e}")
+                return None
+            time.sleep(4 + attempt * 4)
+
+
+def fetch_thread_ip():
+    """Parse discussion 5552 HTML: strip all tags, then find the LAST 'IP <domain>' pair
+    (newest community post, best-effort) - or None."""
+    html = fetch(THREAD_URL)
+    if not html:
+        return None
+    text = re.sub(r"<[^>]+>", " ", html)  # strip HTML markup
+    text = re.sub(r"[ \t]+", " ", text)
+    pairs = re.findall(
+        r"(\d{1,3}(?:\.\d{1,3}){3})\s*\n?\s*((?:[\w-]+\.)*(?:spotify\.(?:com|dev|io)|scdn\.co)\b)",
+        text, re.I,
+    )
+    if pairs:
+        ip, dom = pairs[-1]
+        print(f"   thread 5552 parsed: latest community pair = {ip} {dom}")
+        return ip
+    print("   thread 5552: no IP+domain pairs found in fetched HTML")
+    return None
 
 
 def probe(ip, sni, timeout=6):
     """HTTP status through this IP for SNI=sni, CERT VERIFICATION ON."""
-    ctx = ssl.create_default_context()  # verifies the certificate
+    ctx = ssl.create_default_context()
     try:
         with socket.create_connection((ip, 443), timeout=timeout) as sock:
             with ctx.wrap_socket(sock, server_hostname=sni) as tls:
@@ -54,30 +93,37 @@ def last_known_ip():
     return None
 
 
+def eu_servers():
+    text = fetch(EU_URL)
+    if not text:
+        return []
+    return sorted({p[0] for p in
+                   (l.split("#", 1)[0].split() for l in text.splitlines())
+                   if len(p) >= 2 and re.match(r"^\d{1,3}(\.\d{1,3}){3}$", p[0])})
+
+
 def main():
-    req = urllib.request.Request(EU_URL, headers={"User-Agent": "hosts-merger/1.0"})
-    text = urllib.request.urlopen(req, timeout=60).read().decode("utf-8", errors="replace")
+    thread_ip = fetch_thread_ip()
+    current = last_known_ip()
 
-    servers = set()
-    for raw in text.splitlines():
-        line = raw.split("#", 1)[0].strip()
-        if not line:
-            continue
-        parts = line.split()
-        if len(parts) >= 2 and re.match(r"^\d{1,3}(\.\d{1,3}){3}$", parts[0]):
-            servers.add(parts[0])
+    candidates = []
+    for c in [thread_ip, current]:
+        if c and c not in candidates:
+            candidates.append(c)
+    for s in eu_servers():
+        if s not in candidates:
+            candidates.append(s)
 
-    pref = last_known_ip()
-    if pref:
-        servers.add(pref)  # test the current pick first if alive
-
-    ordered = ([pref] if pref else []) + sorted(servers - {pref})
-    print(f"Testing {len(ordered)} candidate servers (cert verification ON):")
+    print(f"Testing {len(candidates)} candidates (cert verification ON), order: thread -> current -> GeoHide EU")
     picked = None
-    for srv in ordered:
+    for srv in candidates:
         st = probe(srv, PROBE_DOMAIN)
-        mark = " <- current" if srv == pref else ""
-        print(f"   {srv}: {st or 'DEAD/RST'}{mark}")
+        tag = []
+        if srv == thread_ip:
+            tag.append("thread")
+        if srv == current:
+            tag.append("current")
+        print(f"   {srv}: {st or 'DEAD/RST'}" + (f" [{','.join(tag)}]" if tag else ""))
         if st:
             picked = srv
             break
@@ -85,12 +131,12 @@ def main():
     if picked is None:
         print("no cert-valid server found - keeping existing file")
         return 1
-    print(f"PICKED: {picked}" + (" (kept current)" if picked == pref else ""))
+    print(f"PICKED: {picked}" + (" (kept current)" if picked == current and picked != thread_ip else ""))
 
     now = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
     lines = [
         "# AUTO-GENERATED by make_spotify.py - DO NOT EDIT BY HAND",
-        f"# Domain list: {THREAD_URL} (2026-11-12 post)",
+        f"# Domain list: {THREAD_URL} (2026-11-12 post); IP candidates: thread 5552 -> current -> GeoHide EU",
         f"# Generated: {now}",
         f"# Server: {picked} (cert-validated from this machine)",
         "",
