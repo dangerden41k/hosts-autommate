@@ -1,5 +1,5 @@
 # ============================================================
-# Merged hosts file - generated 2026-11-12 16:49 UTC by hosts-merger
+# Merged hosts file - generated 2026-11-12 17:12 UTC by hosts-merger
 # Sources (priority top-down):
 #   1. spotify_hosts
 #   2. roblox_hosts
@@ -11,7 +11,7 @@
 127.0.0.1  localhost.localdomain
 ::1        localhost
 
-# === geohide_ru_hosts: 37.221.93.141 (1059 domains) ===
+# === geohide_ru_hosts: 37.221.93.141 (1060 domains) ===
 37.221.93.141      37signals.com
 37.221.93.141      a-api.anthropic.com
 37.221.93.141      a-cdn.anthropic.com
@@ -384,6 +384,7 @@
 37.221.93.141      hume.ai
 37.221.93.141      i.dell.com
 37.221.93.141      i.fmhy.net
+37.221.93.141      i.scdn.co
 37.221.93.141      id.trimble.com
 37.221.93.141      ikea.com
 37.221.93.141      images.contentstack.io
