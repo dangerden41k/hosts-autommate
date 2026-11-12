@@ -1,132 +1,110 @@
-# make_spotify.py - auto-generate spotify_hosts.txt from the GeoHide EU hosts file.
+# make_spotify.py - regenerate spotify_hosts.txt with a LIVE, CERT-VALID server.
 #
-# GeoHide EU file maps every spotify/scdn domain to ALL of their EU servers; some
-# servers die or stop proxying over time (that is why the Flowseal thread keeps
-# posting new IPs). This script:
-#   1. extracts spotify/scdn domains from the EU file,
-#   2. functionally tests each candidate EU server: real HTTPS request to
-#      api.spotify.com pinned to that IP (TCP + TLS + HTTP response required),
-#   3. KEEPS the server already used in the existing spotify_hosts.txt if it is
-#      still functional (stability - don't break what works),
-#   4. otherwise picks the first functional server.
-# Result: the fix self-heals when the current server dies; a manually chosen
-# working IP is never thrown away while it still works.
+# Domain list = the community-authoritative set from Flowseal discussion 5552
+# (latest post 2026-11-12). Candidate servers come from the GeoHide EU file.
+# Every candidate is tested with CERT VERIFICATION ON (real browser behavior -
+# learned the hard way: verify-off probes gave false "200" on MITM proxies).
+# Picks the first server that answers HTTP for api.spotify.com with a valid
+# certificate; falls back to the last known-good IP from the existing file.
 import re
 import socket
 import ssl
 import urllib.request
-from collections import Counter, defaultdict
+from collections import defaultdict
 from datetime import datetime, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
 EU_URL = "https://raw.githubusercontent.com/Internet-Helper/GeoHideDNS/main/hosts/eu/hosts"
+THREAD_URL = "https://github.com/Flowseal/zapret-discord-youtube/discussions/5552"
 OUT = ROOT / "spotify_hosts.txt"
-PATTERN = re.compile(r"spotify|scdn\.co$", re.I)
+DOMAINS = [
+    "spotify.dev", "www.spotify.dev", "spotify.com", "www.spotify.com",
+    "api.spotify.com", "login5.spotify.com", "encore.scdn.co",
+    "gew1-spclient.spotify.com", "spclient.wg.spotify.com",
+    "api-partner.spotify.com", "aet.spotify.com", "accounts.spotify.com",
+    "open.spotify.com", "accounts.scdn.co", "gew1-dealer.spotify.com",
+    "www-growth.scdn.co", "scdn.co", "www.scdn.co", "i.scdn.co",
+]
 PROBE_DOMAIN = "api.spotify.com"
 
 
-def functional(ip, timeout=6):
-    """True if a real HTTPS request to PROBE_DOMAIN through this IP gets an HTTP answer."""
-    ctx = ssl.create_default_context()
-    ctx.check_hostname = False
-    ctx.verify_mode = ssl.CERT_NONE
+def probe(ip, sni, timeout=6):
+    """HTTP status through this IP for SNI=sni, CERT VERIFICATION ON."""
+    ctx = ssl.create_default_context()  # verifies the certificate
     try:
         with socket.create_connection((ip, 443), timeout=timeout) as sock:
-            with ctx.wrap_socket(sock, server_hostname=PROBE_DOMAIN) as tls:
-                tls.sendall(
-                    f"GET / HTTP/1.1\r\nHost: {PROBE_DOMAIN}\r\n"
-                    f"User-Agent: hosts-merger/1.0\r\nConnection: close\r\n\r\n".encode()
-                )
-                data = tls.recv(256)
-                # any HTTP answer (even 3xx/4xx) = the proxy serves this domain;
-                # a dead/broken proxy gives no data, a TLS reset, or a TCP failure
-                return data.startswith(b"HTTP/")
+            with ctx.wrap_socket(sock, server_hostname=sni) as tls:
+                tls.sendall(f"GET / HTTP/1.1\r\nHost: {sni}\r\nUser-Agent: Mozilla/5.0\r\nConnection: close\r\n\r\n".encode())
+                data = tls.recv(128)
+                if data.startswith(b"HTTP/"):
+                    return data.split(b"\r\n", 1)[0].decode("utf-8", "replace")
     except OSError:
-        return False
+        pass
+    return None
 
 
-def current_preferred():
-    """Majority IP from the existing spotify_hosts.txt, if any."""
+def last_known_ip():
     if not OUT.exists():
         return None
-    ips = Counter()
     for l in OUT.read_text(encoding="utf-8", errors="replace").splitlines():
         s = l.strip()
         if s and not s.startswith("#"):
-            parts = s.split()
-            if len(parts) == 2:
-                ips[parts[0]] += 1
-    return ips.most_common(1)[0][0] if ips else None
+            return s.split()[0]
+    return None
 
 
 def main():
     req = urllib.request.Request(EU_URL, headers={"User-Agent": "hosts-merger/1.0"})
     text = urllib.request.urlopen(req, timeout=60).read().decode("utf-8", errors="replace")
 
-    domains = {}                # domain -> first-occurrence ip (last-resort fallback)
-    servers = defaultdict(set)  # server -> {domains}
+    servers = set()
     for raw in text.splitlines():
         line = raw.split("#", 1)[0].strip()
         if not line:
             continue
         parts = line.split()
-        if len(parts) < 2:
-            continue
-        ip, dom = parts[0], parts[1].lower().strip(".")
-        if PATTERN.search(dom):
-            domains.setdefault(dom, ip)
-            servers[ip].add(dom)
-    if not domains:
-        print("no spotify domains found in EU file - keeping existing file")
-        return 1
+        if len(parts) >= 2 and re.match(r"^\d{1,3}(\.\d{1,3}){3}$", parts[0]):
+            servers.add(parts[0])
 
-    need = set(domains)
-    candidates = sorted(servers, key=lambda s: -len(servers[s] & need))
-    pref = current_preferred()
-    print("Server functional test (HTTPS GET api.spotify.com through each IP):")
-    working = []
-    for srv in candidates:
-        if servers[srv] < need:
-            continue  # must cover all domains
-        ok = functional(srv)
-        mark = " <- current" if srv == pref else ""
-        print(f"   {srv}: {'OK' if ok else 'BROKEN'}{mark}")
-        if ok:
-            working.append(srv)
+    pref = last_known_ip()
+    if pref:
+        servers.add(pref)  # test the current pick first if alive
 
+    ordered = ([pref] if pref else []) + sorted(servers - {pref})
+    print(f"Testing {len(ordered)} candidate servers (cert verification ON):")
     picked = None
-    if pref and pref in working:
-        picked = pref
-        print(f"KEPT current working server: {picked}")
-    elif working:
-        picked = working[0]
-        print(f"PICKED server: {picked}")
-    else:
-        print("no functional server found - falling back to file's first IPs")
+    for srv in ordered:
+        st = probe(srv, PROBE_DOMAIN)
+        mark = " <- current" if srv == pref else ""
+        print(f"   {srv}: {st or 'DEAD/RST'}{mark}")
+        if st:
+            picked = srv
+            break
 
-    chosen = {dom: picked for dom in domains} if picked else domains
+    if picked is None:
+        print("no cert-valid server found - keeping existing file")
+        return 1
+    print(f"PICKED: {picked}" + (" (kept current)" if picked == pref else ""))
 
     now = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
     lines = [
         "# AUTO-GENERATED by make_spotify.py - DO NOT EDIT BY HAND",
-        f"# Source: {EU_URL}",
+        f"# Domain list: {THREAD_URL} (2026-11-12 post)",
         f"# Generated: {now}",
-        f"# Server: {picked or 'file first-occurrence fallback'}"
-        " (kept current = preferred; auto-picked only if it broke)",
+        f"# Server: {picked} (cert-validated from this machine)",
         "",
     ]
-    for dom in sorted(chosen):
-        lines.append(f"{chosen[dom]:<18} {dom}")
+    for d in DOMAINS:
+        lines.append(f"{picked:<18} {d}")
     lines.append("")
     new_text = "\n".join(lines)
-    # skip write if only the timestamp changed (avoids commit spam on hourly runs)
-    strip = lambda s: [l for l in s.splitlines() if "Generated:" not in l and "Generated -" not in l]
+    strip = lambda s: [l for l in s.splitlines() if "Generated:" not in l]
     if OUT.exists() and strip(OUT.read_text(encoding="utf-8", errors="replace")) == strip(new_text):
-        print(f"spotify_hosts.txt unchanged ({len(chosen)} domains) - not rewritten")
+        print(f"spotify_hosts.txt unchanged ({len(DOMAINS)} domains) - not rewritten")
         return 0
     OUT.write_text(new_text, encoding="utf-8", newline="\n")
-    print(f"spotify_hosts.txt written: {len(chosen)} domains")
+    print(f"spotify_hosts.txt written: {len(DOMAINS)} domains on {picked}")
     return 0
 
 
