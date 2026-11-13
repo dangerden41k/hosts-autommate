@@ -1,5 +1,5 @@
 # ============================================================
-# Merged hosts file - generated 2026-11-13 16:48 UTC by hosts-merger
+# Merged hosts file - generated 2026-11-13 17:49 UTC by hosts-merger
 # Sources (priority top-down):
 #   1. spotify_hosts
 #   2. roblox_hosts
@@ -11,7 +11,31 @@
 127.0.0.1  localhost.localdomain
 ::1        localhost
 
-# === geohide_ru_hosts: 37.221.93.141 (1060 domains) ===
+# === spotify_hosts: 5.175.161.3 (19 domains) ===
+5.175.161.3        accounts.scdn.co
+5.175.161.3        accounts.spotify.com
+5.175.161.3        aet.spotify.com
+5.175.161.3        api-partner.spotify.com
+5.175.161.3        api.spotify.com
+5.175.161.3        encore.scdn.co
+5.175.161.3        gew1-dealer.spotify.com
+5.175.161.3        gew1-spclient.spotify.com
+5.175.161.3        i.scdn.co
+5.175.161.3        login5.spotify.com
+5.175.161.3        open.spotify.com
+5.175.161.3        scdn.co
+5.175.161.3        spclient.wg.spotify.com
+5.175.161.3        spotify.com
+5.175.161.3        spotify.dev
+5.175.161.3        www-growth.scdn.co
+5.175.161.3        www.scdn.co
+5.175.161.3        www.spotify.com
+5.175.161.3        www.spotify.dev
+
+# === roblox_hosts: 18.65.39.105 (1 domain) ===
+18.65.39.105       tr.rbxcdn.com
+
+# === geohide_ru_hosts: 37.221.93.141 (1041 domains) ===
 37.221.93.141      37signals.com
 37.221.93.141      a-api.anthropic.com
 37.221.93.141      a-cdn.anthropic.com
@@ -21,13 +45,10 @@
 37.221.93.141      access.broadcom.com
 37.221.93.141      account.jetbrains.com
 37.221.93.141      accounts.chaos.com
-37.221.93.141      accounts.scdn.co
-37.221.93.141      accounts.spotify.com
 37.221.93.141      accounts.supercell.com
 37.221.93.141      accounts.x.ai
 37.221.93.141      adobe.io
 37.221.93.141      aeronube.csm.naukri.com
-37.221.93.141      aet.spotify.com
 37.221.93.141      afcs.dellcdn.com
 37.221.93.141      affinity.studio
 37.221.93.141      agentn.api2.cursor.sh
@@ -55,7 +76,6 @@
 37.221.93.141      antigravity.google
 37.221.93.141      antigravity.googleapis.com
 37.221.93.141      api-free.deepl.com
-37.221.93.141      api-partner.spotify.com
 37.221.93.141      api-sg-central.trae.ai
 37.221.93.141      api.anthropic.com
 37.221.93.141      api.blue.mongodb.com
@@ -75,7 +95,6 @@
 37.221.93.141      api.manus.im
 37.221.93.141      api.openai.com
 37.221.93.141      api.radarr.video
-37.221.93.141      api.spotify.com
 37.221.93.141      api.stumbleguys.com
 37.221.93.141      api.trae.ai
 37.221.93.141      api.us.elevenlabs.io
@@ -300,7 +319,6 @@
 37.221.93.141      elmastvnet.xyz
 37.221.93.141      email.strava.com
 37.221.93.141      email1.strava.com
-37.221.93.141      encore.scdn.co
 37.221.93.141      eneba.com
 37.221.93.141      engineering.naukri.com
 37.221.93.141      enscape3d.com
@@ -363,8 +381,6 @@
 37.221.93.141      generativelanguage.googleapis.com
 37.221.93.141      genspark.ai
 37.221.93.141      geolocation.onetrust.com
-37.221.93.141      gew1-dealer.spotify.com
-37.221.93.141      gew1-spclient.spotify.com
 37.221.93.141      gql.twitch.tv
 37.221.93.141      graphql.strava.com
 37.221.93.141      grok.com
@@ -384,7 +400,6 @@
 37.221.93.141      hume.ai
 37.221.93.141      i.dell.com
 37.221.93.141      i.fmhy.net
-37.221.93.141      i.scdn.co
 37.221.93.141      id.trimble.com
 37.221.93.141      ikea.com
 37.221.93.141      images.contentstack.io
@@ -438,7 +453,6 @@
 37.221.93.141      login-wall.deepl.com
 37.221.93.141      login.naukri.com
 37.221.93.141      login.recruit.naukri.com
-37.221.93.141      login5.spotify.com
 37.221.93.141      logs.naukri.com
 37.221.93.141      lookerstudio.google.com
 37.221.93.141      lyncdiscover.naukri.com
@@ -557,7 +571,6 @@
 37.221.93.141      opal.google
 37.221.93.141      opal.google.com
 37.221.93.141      opal.withgoogle.com
-37.221.93.141      open.spotify.com
 37.221.93.141      openai.com
 37.221.93.141      opencode.ai
 37.221.93.141      openrouter.ai
@@ -643,7 +656,6 @@
 37.221.93.141      s.last.fm
 37.221.93.141      s.linear.app
 37.221.93.141      saa.last.fm
-37.221.93.141      scdn.co
 37.221.93.141      scim.strava.com
 37.221.93.141      scribd.com
 37.221.93.141      scribdassets.com
@@ -674,9 +686,6 @@
 37.221.93.141      slack.com
 37.221.93.141      slackb.com
 37.221.93.141      smtp.naukri.com
-37.221.93.141      spclient.wg.spotify.com
-37.221.93.141      spotify.com
-37.221.93.141      spotify.dev
 37.221.93.141      squadbusters.com
 37.221.93.141      squadbustersgame.com
 37.221.93.141      squareup.com
@@ -825,7 +834,6 @@
 37.221.93.141      wtg.csm.naukri.com
 37.221.93.141      wund.com
 37.221.93.141      wunderground.com
-37.221.93.141      www-growth.scdn.co
 37.221.93.141      www.37signals.com
 37.221.93.141      www.aave.com
 37.221.93.141      www.adobe.io
@@ -1013,7 +1021,6 @@
 37.221.93.141      www.reve.art
 37.221.93.141      www.reve.com
 37.221.93.141      www.romsgames.net
-37.221.93.141      www.scdn.co
 37.221.93.141      www.scribd.com
 37.221.93.141      www.scribdassets.com
 37.221.93.141      www.se.com
@@ -1026,8 +1033,6 @@
 37.221.93.141      www.slack-imgs.com
 37.221.93.141      www.slack.com
 37.221.93.141      www.slackb.com
-37.221.93.141      www.spotify.com
-37.221.93.141      www.spotify.dev
 37.221.93.141      www.squareup.com
 37.221.93.141      www.strava.com
 37.221.93.141      www.superpharm.eu
@@ -1072,9 +1077,6 @@
 37.221.93.141      yupp.ai
 37.221.93.141      zapier-deployment.com
 37.221.93.141      zapier.com
-
-# === roblox_hosts: 18.65.39.105 (1 domain) ===
-18.65.39.105       tr.rbxcdn.com
 
 # === malw.link: 185.31.40.18 (1 domain) ===
 185.31.40.18       test.dns.malw.link
