@@ -1,5 +1,5 @@
 # ============================================================
-# Merged hosts file - generated 2026-11-14 17:48 UTC by hosts-merger
+# Merged hosts file - generated 2026-11-14 18:49 UTC by hosts-merger
 # Sources (priority top-down):
 #   1. spotify_hosts
 #   2. roblox_hosts
@@ -1087,41 +1087,41 @@
 57.144.248.34      z-p42-chat-e2ee-ig.facebook.com
 
 # === OpenAI (malw.link) ===
-31.58.216.201      sora.chatgpt.com
+217.60.179.6       sora.chatgpt.com
 
 # === GitHub Copilot (malw.link) ===
-31.58.216.201      api.github.com
-31.58.216.201      api.individual.githubcopilot.com
-31.58.216.201      proxy.individual.githubcopilot.com
+217.60.179.6       api.github.com
+217.60.179.6       api.individual.githubcopilot.com
+217.60.179.6       proxy.individual.githubcopilot.com
 
 # === Tidal (malw.link) ===
-31.58.216.201      api-global.squareup.com
-31.58.216.201      api.squareup.com
-31.58.216.201      api.tidal.com
-31.58.216.201      auth.tidal.com
-31.58.216.201      dd.tidal.com
-31.58.216.201      images.tidal.com
-31.58.216.201      link.tidal.com
-31.58.216.201      listen.tidal.com
-31.58.216.201      login.tidal.com
-31.58.216.201      resources.tidal.com
+217.60.179.6       api-global.squareup.com
+217.60.179.6       api.squareup.com
+217.60.179.6       api.tidal.com
+217.60.179.6       auth.tidal.com
+217.60.179.6       dd.tidal.com
+217.60.179.6       images.tidal.com
+217.60.179.6       link.tidal.com
+217.60.179.6       listen.tidal.com
+217.60.179.6       login.tidal.com
+217.60.179.6       resources.tidal.com
 
 # === DeepL (malw.link) ===
-31.58.216.201      voice-proxy.www.deepl.com
-31.58.216.201      www2.deepl.com
+217.60.179.6       voice-proxy.www.deepl.com
+217.60.179.6       www2.deepl.com
 
 # === Claude (malw.link) ===
-31.58.216.201      a.claude.ai
+217.60.179.6       a.claude.ai
 
 # === TikTok (malw.link) ===
 217.60.179.6       www.tiktok.com
 
 # === Dyson (malw.link) ===
-31.58.216.201      www.dyson.fr
+217.60.179.6       www.dyson.fr
 
 # === Patreon (malw.link) ===
-31.31.207.68       patreon.com
-31.58.216.201      www.patreon.com
+217.60.179.6       patreon.com
+217.60.179.6       www.patreon.com
 
 # === Blocklist: ads and trackers (0.0.0.0) ===
 0.0.0.0            1l-hit.mail.ru
