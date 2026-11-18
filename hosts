@@ -1,5 +1,5 @@
 # ============================================================
-# Merged hosts file - generated 2026-11-18 12:27 UTC by hosts-merger
+# Merged hosts file - generated 2026-11-18 12:49 UTC by hosts-merger
 # Sources (priority top-down):
 #   1. spotify_hosts
 #   2. roblox_hosts
@@ -11,17 +11,38 @@
 127.0.0.1  localhost.localdomain
 ::1        localhost
 
-# === geohide_ru_hosts: 37.221.93.128 (543 domains) ===
+# === spotify_hosts: 48.102.233.174 (19 domains) ===
+48.102.233.174     accounts.scdn.co
+48.102.233.174     accounts.spotify.com
+48.102.233.174     aet.spotify.com
+48.102.233.174     api-partner.spotify.com
+48.102.233.174     api.spotify.com
+48.102.233.174     encore.scdn.co
+48.102.233.174     gew1-dealer.spotify.com
+48.102.233.174     gew1-spclient.spotify.com
+48.102.233.174     i.scdn.co
+48.102.233.174     login5.spotify.com
+48.102.233.174     open.spotify.com
+48.102.233.174     scdn.co
+48.102.233.174     spclient.wg.spotify.com
+48.102.233.174     spotify.com
+48.102.233.174     spotify.dev
+48.102.233.174     www-growth.scdn.co
+48.102.233.174     www.scdn.co
+48.102.233.174     www.spotify.com
+48.102.233.174     www.spotify.dev
+
+# === roblox_hosts: 18.65.39.105 (1 domain) ===
+18.65.39.105       tr.rbxcdn.com
+
+# === geohide_ru_hosts: 37.221.93.128 (524 domains) ===
 37.221.93.128      37signals.com
 37.221.93.128      a-cdn.anthropic.com
 37.221.93.128      aave.com
 37.221.93.128      access.broadcom.com
 37.221.93.128      accounts.chaos.com
-37.221.93.128      accounts.scdn.co
-37.221.93.128      accounts.spotify.com
 37.221.93.128      accounts.x.ai
 37.221.93.128      aeronube.csm.naukri.com
-37.221.93.128      aet.spotify.com
 37.221.93.128      afcs.dellcdn.com
 37.221.93.128      agentn.api2.cursor.sh
 37.221.93.128      agentn.api4.cursor.sh
@@ -36,7 +57,6 @@
 37.221.93.128      antigravity-pa.googleapis.com
 37.221.93.128      antigravity.google
 37.221.93.128      api-free.deepl.com
-37.221.93.128      api-partner.spotify.com
 37.221.93.128      api-sg-central.trae.ai
 37.221.93.128      api.blue.mongodb.com
 37.221.93.128      api.cerebras.ai
@@ -47,7 +67,6 @@
 37.221.93.128      api.imgur.com
 37.221.93.128      api.manus.im
 37.221.93.128      api.radarr.video
-37.221.93.128      api.spotify.com
 37.221.93.128      api.stumbleguys.com
 37.221.93.128      api.us.elevenlabs.io
 37.221.93.128      api.x.ai
@@ -161,7 +180,6 @@
 37.221.93.128      elevenreader.io
 37.221.93.128      elmastvnet.xyz
 37.221.93.128      email1.strava.com
-37.221.93.128      encore.scdn.co
 37.221.93.128      eneba.com
 37.221.93.128      enscape3d.com
 37.221.93.128      errortracking.deepl.com
@@ -193,8 +211,6 @@
 37.221.93.128      geminiweb-pa.clients.google.com
 37.221.93.128      generativeai.google
 37.221.93.128      genspark.ai
-37.221.93.128      gew1-dealer.spotify.com
-37.221.93.128      gew1-spclient.spotify.com
 37.221.93.128      gql.twitch.tv
 37.221.93.128      grok.com
 37.221.93.128      grok.x.com
@@ -205,7 +221,6 @@
 37.221.93.128      hiring.naukri.com
 37.221.93.128      hs.deepl.com
 37.221.93.128      i.dell.com
-37.221.93.128      i.scdn.co
 37.221.93.128      id.trimble.com
 37.221.93.128      images.contentstack.io
 37.221.93.128      images.pump.fun
@@ -233,7 +248,6 @@
 37.221.93.128      links.strava.com
 37.221.93.128      login-wall.deepl.com
 37.221.93.128      login.recruit.naukri.com
-37.221.93.128      login5.spotify.com
 37.221.93.128      logs.naukri.com
 37.221.93.128      lyncdiscover.naukri.com
 37.221.93.128      m.naukri.com
@@ -293,7 +307,6 @@
 37.221.93.128      oneshot-free.www.deepl.com
 37.221.93.128      op.fmhy.net
 37.221.93.128      opal.google.com
-37.221.93.128      open.spotify.com
 37.221.93.128      opencode.ai
 37.221.93.128      operator.chatgpt.com
 37.221.93.128      origin.cursor.com
@@ -336,7 +349,6 @@
 37.221.93.128      romsgames.net
 37.221.93.128      s.deepl.com
 37.221.93.128      s.linear.app
-37.221.93.128      scdn.co
 37.221.93.128      scribd.com
 37.221.93.128      sdmntpritalynorth.oaiusercontent.com
 37.221.93.128      sdmntprpolandcentral.oaiusercontent.com
@@ -352,9 +364,6 @@
 37.221.93.128      slack-files.com
 37.221.93.128      slack.com
 37.221.93.128      smtp.naukri.com
-37.221.93.128      spclient.wg.spotify.com
-37.221.93.128      spotify.com
-37.221.93.128      spotify.dev
 37.221.93.128      squadbusters.com
 37.221.93.128      squareup.com
 37.221.93.128      staging.assessment.nc.naukri.com
@@ -429,7 +438,6 @@
 37.221.93.128      write-free.www.deepl.com
 37.221.93.128      wtg.csm.naukri.com
 37.221.93.128      wunderground.com
-37.221.93.128      www-growth.scdn.co
 37.221.93.128      www.37signals.com
 37.221.93.128      www.adobe.io
 37.221.93.128      www.amd.com
@@ -524,15 +532,12 @@
 37.221.93.128      www.remove.bg
 37.221.93.128      www.reve.art
 37.221.93.128      www.romsgames.net
-37.221.93.128      www.scdn.co
 37.221.93.128      www.scribd.com
 37.221.93.128      www.se.com
 37.221.93.128      www.singlekey-id.com
 37.221.93.128      www.slack-core.com
 37.221.93.128      www.slack-files.com
 37.221.93.128      www.slack.com
-37.221.93.128      www.spotify.com
-37.221.93.128      www.spotify.dev
 37.221.93.128      www.squareup.com
 37.221.93.128      www.superpharm.eu
 37.221.93.128      www.tableau.com
@@ -555,9 +560,6 @@
 37.221.93.128      xerox.com
 37.221.93.128      yeggi.com
 37.221.93.128      zapier-deployment.com
-
-# === roblox_hosts: 18.65.39.105 (1 domain) ===
-18.65.39.105       tr.rbxcdn.com
 
 # === geohide_ru_hosts: 45.13.237.213 (517 domains) ===
 45.13.237.213      a-api.anthropic.com
