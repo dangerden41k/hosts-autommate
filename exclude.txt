@@ -1,4 +1,12 @@
 # Domains to DROP from the merge. A domain is excluded if it CONTAINS any
 # pattern below (substring match, case-insensitive). One pattern per line.
+
 # Reason: Xbox Live via proxy IPs breaks Xbox - user says it works without hosts entries.
 xbox
+
+# Reason 2026-11-21: malw's twitch entries pinned gql.twitch.tv/usher.ttvnw.net
+# to a dead proxy -> "Error loading data" on Twitch. Twitch's REAL infrastructure
+# works direct from this machine (verified 151.101.x / 18.244.x all alive) —
+# exclude twitch domains so they resolve via real DNS.
+twitch
+ttvnw
