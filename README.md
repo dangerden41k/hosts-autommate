@@ -31,7 +31,7 @@
 1. Пустой публичный репозиторий (например `hosts-merged`).
 2. Загрузить все файлы этой папки, включая `.github/workflows/merge-hosts.yml`.
 3. Actions включится сам → каждые 6 часов свежий `hosts` коммитится в репо.
-4. Постоянная ссылка на файл: `https://raw.githubusercontent.com/USER/REPO/main/hosts`
+4. Постоянная ссылка на файл: `https://raw.githubusercontent.com/dangerden41k/hosts-autommate/main/hosts` 
 
 ## Локально на Windows
 
