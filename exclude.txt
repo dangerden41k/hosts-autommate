@@ -10,3 +10,10 @@ xbox
 # exclude twitch domains so they resolve via real DNS.
 twitch
 ttvnw
+
+# Reason 2026-11-27: koski's matrix — spotify APP works via real DNS (own infra)
+# but breaks via the pinned proxy IP (flaps under load of 19 domains); Discord
+# status needs the app healthy. Spotify OUT of hosts; spotify_hosts.txt keeps
+# being generated as a spare — to re-enable, delete the two lines below.
+spotify
+scdn.co
