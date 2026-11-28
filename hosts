@@ -1,10 +1,11 @@
 # ============================================================
-# Merged hosts file - generated 2026-11-28 11:17 UTC by hosts-merger
+# Merged hosts file - generated 2026-11-28 11:50 UTC by hosts-merger
 # Sources (priority top-down):
 #   1. spotify_hosts
 #   2. roblox_hosts
-#   3. malw.link
-#   4. geohide_ru_hosts
+#   3. anthropic_hosts
+#   4. malw.link
+#   5. geohide_ru_hosts
 # ============================================================
 
 127.0.0.1  localhost
@@ -13,6 +14,35 @@
 
 # === roblox_hosts: 18.65.39.105 (1 domain) ===
 18.65.39.105       tr.rbxcdn.com
+
+# === anthropic_hosts: 31.58.216.201 (27 domains) ===
+31.58.216.201      a-api.anthropic.com
+31.58.216.201      a-cdn.anthropic.com
+31.58.216.201      a.claude.ai
+31.58.216.201      anthropic.com
+31.58.216.201      api.anthropic.com
+31.58.216.201      api.claude.ai
+31.58.216.201      api.claude.com
+31.58.216.201      api.console.anthropic.com
+31.58.216.201      assets-proxy.anthropic.com
+31.58.216.201      auth.anthropic.com
+31.58.216.201      claude.ai
+31.58.216.201      claude.com
+31.58.216.201      claudemcpclient.com
+31.58.216.201      claudeusercontent.com
+31.58.216.201      console.anthropic.com
+31.58.216.201      downloads.claude.ai
+31.58.216.201      platform.claude.ai
+31.58.216.201      platform.claude.com
+31.58.216.201      s-cdn.anthropic.com
+31.58.216.201      statsig.anthropic.com
+31.58.216.201      status.anthropic.com
+31.58.216.201      support.anthropic.com
+31.58.216.201      www.anthropic.com
+31.58.216.201      www.claude.ai
+31.58.216.201      www.claude.com
+31.58.216.201      www.claudemcpclient.com
+31.58.216.201      www.claudeusercontent.com
 
 # === malw.link: 185.31.40.18 (1 domain) ===
 185.31.40.18       test.dns.malw.link
@@ -166,13 +196,6 @@
 48.102.233.174     stitch.withgoogle.com
 48.102.233.174     webchannel-alkalimakersuite-pa.clients6.google.com
 
-# === Claude (malw.link) ===
-217.60.179.6       a.claude.ai
-217.60.179.6       api.anthropic.com
-217.60.179.6       claude.ai
-217.60.179.6       console.anthropic.com
-217.60.179.6       platform.claude.com
-
 # === Linear (malw.link) ===
 217.60.179.6       client-api.linear.app
 217.60.179.6       constellation.linear.app
@@ -220,10 +243,8 @@
 217.60.179.6       patreon.com
 217.60.179.6       www.patreon.com
 
-# === geohide_ru_hosts: 45.13.237.213 (917 domains) ===
+# === geohide_ru_hosts: 45.13.237.213 (895 domains) ===
 45.13.237.213      37signals.com
-45.13.237.213      a-api.anthropic.com
-45.13.237.213      a-cdn.anthropic.com
 45.13.237.213      a-lemmy.fmhy.net
 45.13.237.213      aave.com
 45.13.237.213      access.broadcom.com
@@ -246,7 +267,6 @@
 45.13.237.213      alkalicore-pa.clients6.google.com
 45.13.237.213      amd.com
 45.13.237.213      analog.com
-45.13.237.213      anthropic.com
 45.13.237.213      antigravity-pa.googleapis.com
 45.13.237.213      antigravity-unleash.goog
 45.13.237.213      antigravity.google
@@ -255,9 +275,6 @@
 45.13.237.213      api.blue.mongodb.com
 45.13.237.213      api.cdnlibs.org
 45.13.237.213      api.cerebras.ai
-45.13.237.213      api.claude.ai
-45.13.237.213      api.claude.com
-45.13.237.213      api.console.anthropic.com
 45.13.237.213      api.deepl.com
 45.13.237.213      api.fmhy.net
 45.13.237.213      api.groq.com
@@ -290,13 +307,11 @@
 45.13.237.213      assessments.naukri.com
 45.13.237.213      assessments.nc.naukri.com
 45.13.237.213      assets-configurator.chess.com
-45.13.237.213      assets-proxy.anthropic.com
 45.13.237.213      assets.staging.assessment.nc.naukri.com
 45.13.237.213      assets.x.ai
 45.13.237.213      astockcdn.net
 45.13.237.213      atlassian.com
 45.13.237.213      audacy.com
-45.13.237.213      auth.anthropic.com
 45.13.237.213      authenticate.cursor.sh
 45.13.237.213      authenticator.cursor.sh
 45.13.237.213      autocad.com
@@ -372,9 +387,6 @@
 45.13.237.213      clashofclans.com
 45.13.237.213      clashroyale.com
 45.13.237.213      clashroyaleapp.com
-45.13.237.213      claude.com
-45.13.237.213      claudemcpclient.com
-45.13.237.213      claudeusercontent.com
 45.13.237.213      clickup.com
 45.13.237.213      cm.naukri.com
 45.13.237.213      cms-images.mmst.eu
@@ -435,7 +447,6 @@
 45.13.237.213      dola.com
 45.13.237.213      download.teamviewer.com
 45.13.237.213      download.todesktop.com
-45.13.237.213      downloads.claude.ai
 45.13.237.213      downloads.cursor.com
 45.13.237.213      dr.miromind.ai
 45.13.237.213      dtm8.dinamicagenerale.com
@@ -692,7 +703,6 @@
 45.13.237.213      people-pa.clients6.google.com
 45.13.237.213      pg.naukri.com
 45.13.237.213      pi.ai
-45.13.237.213      platform.claude.ai
 45.13.237.213      platform.parallel.ai
 45.13.237.213      play.date
 45.13.237.213      playground.google
@@ -742,7 +752,6 @@
 45.13.237.213      rmsbulkupload.naukri.com
 45.13.237.213      rmsmail.naukri.com
 45.13.237.213      romsgames.net
-45.13.237.213      s-cdn.anthropic.com
 45.13.237.213      s.deepl.com
 45.13.237.213      s.last.fm
 45.13.237.213      saa.last.fm
@@ -784,8 +793,6 @@
 45.13.237.213      static.naukri.com
 45.13.237.213      static.staging.assessment.nc.naukri.com
 45.13.237.213      stats.fmhy.net
-45.13.237.213      statsig.anthropic.com
-45.13.237.213      status.anthropic.com
 45.13.237.213      status.fmhy.net
 45.13.237.213      status.strava.com
 45.13.237.213      status.tuta.com
@@ -818,7 +825,6 @@
 45.13.237.213      supercellstore.com
 45.13.237.213      superpharm.eu
 45.13.237.213      superpharm.pl
-45.13.237.213      support.anthropic.com
 45.13.237.213      support.broadcom.com
 45.13.237.213      support.deepl.com
 45.13.237.213      support.last.fm
@@ -906,7 +912,6 @@
 45.13.237.213      www.affinity.studio
 45.13.237.213      www.amd.com
 45.13.237.213      www.analog.com
-45.13.237.213      www.anthropic.com
 45.13.237.213      www.antigravity-unleash.goog
 45.13.237.213      www.antigravity.google
 45.13.237.213      www.arduino.cc
@@ -949,10 +954,6 @@
 45.13.237.213      www.chatgpt.site
 45.13.237.213      www.chess.com
 45.13.237.213      www.cici.com
-45.13.237.213      www.claude.ai
-45.13.237.213      www.claude.com
-45.13.237.213      www.claudemcpclient.com
-45.13.237.213      www.claudeusercontent.com
 45.13.237.213      www.clickup.com
 45.13.237.213      www.codeium.com
 45.13.237.213      www.coreweave.com
